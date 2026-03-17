@@ -1,9 +1,19 @@
-const order = require("../data/order");
 const orders = require("../data/order");
 
 // get all orders
 exports.getOrders = function (req, res) {
-  res.status(200).json({ orders });
+  const { item, qty } = req.query;
+  let filterOrder = orders;
+  if (item) {
+    filterOrder = filterOrder.filter(
+      (order) => order.item.toLowerCase() === item.toLowerCase(),
+    );
+  }
+
+  if (qty) {
+    filterOrder = filterOrder.filter((order) => order.qty === Number(qty));
+  }
+  res.json({ order: filterOrder });
 };
 
 // create new order
