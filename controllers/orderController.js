@@ -1,0 +1,52 @@
+const order = require("../data/order");
+const orders = require("../data/order");
+
+// get all orders
+exports.getOrders = function (req, res) {
+  res.status(200).json({ orders });
+};
+
+// create new order
+exports.createOrder = function (req, res) {
+  const newOrder = req.body;
+
+  const addIdToOrder = {
+    id: orders.length + 1,
+    ...newOrder,
+  };
+  orders.push(addIdToOrder);
+  res.status(201).json({
+    message: "Order Recieved",
+    order: addIdToOrder,
+  });
+};
+
+// get order by id
+exports.getOrderById = function (req, res) {
+  const orderID = Number(req.params.id);
+  const findOrder = orders.find((item) => item.id === orderID);
+
+  if (!findOrder) {
+    return res.status(404).json({
+      message: "Order not found",
+    });
+  }
+  res.json(findOrder);
+};
+
+// delete order by id
+exports.deleteOrder = function (req, res) {
+  const orderID = Number(req.params.id);
+  const findOrderIndex = orders.findIndex((item) => item.id === orderID);
+
+  if (findOrderIndex === -1) {
+    return res.status(404).json({
+      message: "Order not found",
+    });
+  }
+  const deletedOrder = orders.splice(findOrderIndex, 1);
+  res.json({
+    message: "Order Deleted",
+    order: deletedOrder[0],
+  });
+};
