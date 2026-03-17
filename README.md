@@ -6,7 +6,7 @@ A simple RESTful API built using Node.js and Express for managing food orders.
 
 * Create Order
 * Get All Orders
-* Get Order by ID
+* Get Order by id
 * Delete Order
 * Filter Orders using Query Params 
 
