@@ -1,16 +1,13 @@
-// Entry point
-const express = require("express");
-const orderRoutes = require("./routes/orderRoutes");
-const app = express();
-const port = 9000;
+const app = require("./src/app.js");
+const connectDb = require("./src/config/db.js");
 
-// middleware
-app.use(express.json());
+require("dotenv").config();
+const PORT = process.env.PORT;
 
-// routes
-app.use("/orders", orderRoutes);
+// db connection
+connectDb();
 
-// listern on port
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+// server starting
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
