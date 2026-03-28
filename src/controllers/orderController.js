@@ -1,4 +1,4 @@
-const orders = require("../data/order");
+const orders = require("../../data/order");
 
 // get all orders
 exports.getOrders = function (req, res) {
