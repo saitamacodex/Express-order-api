@@ -24,9 +24,9 @@ exports.getOrders = async function (req, res) {
 exports.getOrderById = async function (req, res) {
   const _id = req.params.id;
   try {
-    const findOrder = await Orders.findOne({ _id });
+    const findOrder = await Orders.findById(_id);
     if (!findOrder) {
-      res.status(404).json({
+      return res.status(404).json({
         message: "Order not found." + _id,
       });
     }
@@ -64,7 +64,7 @@ exports.deleteOrder = async function (req, res) {
   try {
     const deleteOrder = await Orders.findByIdAndDelete(_id);
     if (!deleteOrder) {
-      res.status(404).json({
+      return res.status(404).json({
         message: "Order not found",
       });
     }
