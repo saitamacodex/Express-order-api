@@ -4,16 +4,16 @@ A simple RESTful API built using Node.js and Express for managing food orders.
 
 ## 🚀 Features
 
-* Create Order
-* Get All Orders
-* Get Order by id
-* Delete Order
-* Filter Orders using Query Params 
+- Create Order
+- Get All Orders
+- Get Order by id
+- Delete Order
+- Filter Orders using Query Params
 
 ## 🛠️ Tech Stack
 
-* Node.js
-* Express.js
+- Node.js
+- Express.js
 
 ## 📦 Installation
 
@@ -30,7 +30,7 @@ node server.js
 Server runs on:
 
 ```
-http://localhost:9090
+http://localhost:${PORT}
 ```
 
 ---
@@ -83,8 +83,9 @@ GET /orders?item=Biriyani&qty=2
 
 ```json
 {
-  "item": "Biriyani",
-  "qty": 2
+  "item": "Veg Frid-rice",
+  "qty": 5,
+  "price": 100
 }
 ```
 
@@ -92,8 +93,8 @@ GET /orders?item=Biriyani&qty=2
 
 ## 📌 Future Improvements
 
-* Add database (MongoDB/PostgreSQL)
-* Add validation middleware
-* Add authentication (JWT)
+- Add database (MongoDB) -> Completed
+- Add validation middleware
+- Add authentication (JWT)
 
 ---

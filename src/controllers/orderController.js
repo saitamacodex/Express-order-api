@@ -1,4 +1,6 @@
-const orders = require("../../data/order");
+// const orders = require("../../data/order");
+
+// this file is for ref - migrated to mongodb
 
 // get all orders
 exports.getOrders = function (req, res) {
