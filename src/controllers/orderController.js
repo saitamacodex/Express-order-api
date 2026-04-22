@@ -1,5 +1,5 @@
 // const orders = require("../../data/order");
-// this file is lefacy version now :D - migrated to mongodb
+// this file is legacy version now :D - migrated to mongodb
 
 // get all orders
 exports.getOrders = function (req, res) {
